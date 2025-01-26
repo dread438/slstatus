@@ -65,7 +65,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument turn signal */
-	{ datetime, "%s",           "%F %T", 1,   -1 },
+	{ipv4, " %s | ", "enp6s0", 120, 1},
+	{run_command, "VOL:%s%% | ", "pamixer --get-volume", 120, 5},
+	{ram_used, "%s | ",NULL, 10, 2},
+	{datetime, "%s", "%H:%M %d-%m-%Y (%a)", 60, 4},
+	// {ram_perc, "RAM:%s%% | ", NULL, 5, 2},
+	// {cpu_perc, "CPU:%s%% | ", NULL, 5, 3},
 };
 
 /* maximum output string length */
