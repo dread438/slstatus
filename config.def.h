@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -63,15 +63,15 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
+
+/*  arg: {function, format, argument, turn, signal} */
 static const struct arg args[] = {
-	/* function format          argument turn signal */
-	{ipv4, " %s | ", "enp6s0", 120, 1},
-	{run_command, "VOL:%s%% | ", "pamixer --get-volume", 120, 5},
-	{ram_used, "%s | ",NULL, 10, 2},
-	{datetime, "%s", "%H:%M %d-%m-%Y (%a)", 60, 4},
-	// {ram_perc, "RAM:%s%% | ", NULL, 5, 2},
-	// {cpu_perc, "CPU:%s%% | ", NULL, 5, 3},
-};
+	{ipv4, "[󰋜 %s] ", "enp6s0", 60, 1},
+	{run_command, "[  %s%%] ", "pamixer --get-volume", 60, 5},
+	{ram_used, "[ %s] ", NULL, 1, 2},
+	{disk_perc, "[󰋊 %s%%] ", "/", 12, 3},
+	{cpu_perc, "[ %s%%] ", NULL, 1, 4},
+	{datetime, "%s", "[ %H:%M] [ %d-%m-%Y (%a)]", 60, 6}};
 
 /* maximum output string length */
 #define MAXLEN CMDLEN * LEN(args)
