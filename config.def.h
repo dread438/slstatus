@@ -69,9 +69,9 @@ static const struct arg args[] = {
 	{ipv4, "[󰋜 %s] ", "enp6s0", 60, 1},
 	{run_command, "[  %s%%] ", "pamixer --get-volume", 60, 5},
 	{ram_used, "[ %s] ", NULL, 1, 2},
-	{disk_perc, "[󰋊 %s%%] ", "/", 12, 3},
+	{disk_perc, "[󰋊 %s%%] ", "/", 60, 3},
 	{cpu_perc, "[ %s%%] ", NULL, 1, 4},
-	{datetime, "%s", "[ %H:%M] [ %d-%m-%Y (%a)]", 60, 6}};
+	{datetime, "%s", "[ %H:%M] [ %d-%m-%Y (%a)]", 12, 6}};
 
 /* maximum output string length */
 #define MAXLEN CMDLEN * LEN(args)
